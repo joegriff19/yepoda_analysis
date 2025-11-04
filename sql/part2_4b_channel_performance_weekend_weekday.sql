@@ -1,3 +1,6 @@
+-- part2_4b_channel_performance_weekday_vs_weekend.sql
+-- Purpose: Compare channel ROAS between weekday and weekend periods.
+
 WITH spend_rows AS (
   SELECT ms.date AS spend_date, 'paid_search' AS channel, paid_search_spend AS spend FROM marketing_spend ms UNION ALL
   SELECT ms.date, 'paid_social', paid_social_spend FROM marketing_spend ms UNION ALL
