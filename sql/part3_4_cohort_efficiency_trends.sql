@@ -36,3 +36,4 @@ FROM cohort_spend cs
 LEFT JOIN cohort_attr ca
   ON cs.channel = ca.channel AND cs.cohort_quarter_start = ca.cohort_quarter_start
 ORDER BY cs.cohort_quarter_start, cs.channel;
+
