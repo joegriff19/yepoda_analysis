@@ -1,3 +1,6 @@
+-- part1_3_summary_stats.sql
+-- Purpose: Generate summary statistics (mean, median, min, max, stddev) for each marketing channel and revenue.
+
 WITH spend_long AS (
   SELECT date, 'paid_search' AS channel, paid_search_spend AS spend FROM marketing_spend UNION ALL
   SELECT date, 'paid_social', paid_social_spend FROM marketing_spend UNION ALL
