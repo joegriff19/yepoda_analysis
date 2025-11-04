@@ -1,3 +1,6 @@
+-- part1_4a_monthly_aggregations.sql
+-- Purpose: Aggregate total spend and revenue by month and calculate monthly ROAS trends.
+
 WITH total_spend AS (
   SELECT
     date,
