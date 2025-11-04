@@ -1,3 +1,7 @@
+-- part1_1_load_data.sql
+-- Purpose: Create tables from the three CSV files (marketing_spend, revenue, external_factors) and define schema.
+
+
 -- Load marketing_spend
 CREATE OR REPLACE TABLE marketing_spend AS
 SELECT
