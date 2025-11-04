@@ -1,3 +1,6 @@
+-- part1_2b_date_gaps.sql
+-- Purpose: Identify missing dates between the minimum and maximum date range across datasets.
+
 WITH bounds AS (
   SELECT MIN(date) AS min_date, MAX(date) AS max_date FROM marketing_spend
 ),
