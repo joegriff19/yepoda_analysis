@@ -16,7 +16,7 @@ Yepoda/data/<filename>.csv
 ```
 
 ### 2. SQL Dialect
-All queries were developed and executed in DuckDB, using SQL that is fully compatible with both DuckDB and PostgreSQL.
+All queries were developed and executed in DuckDB in Jupyter, using SQL that is fully compatible with both DuckDB and PostgreSQL.
 - **DuckDB ≥ 0.10.1**  
 - **PostgreSQL ≥ 14**  
 
