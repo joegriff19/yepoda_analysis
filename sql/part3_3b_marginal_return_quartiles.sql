@@ -1,3 +1,6 @@
+-- part3_3b_marginal_return_quartiles.sql
+-- Purpose: Calculate marginal return by dividing spend into quartiles and comparing ROAS levels.
+
 WITH spend_long AS (
   SELECT date, 'paid_search' AS channel, paid_search_spend AS spend FROM marketing_spend UNION ALL
   SELECT date, 'paid_social', paid_social_spend FROM marketing_spend UNION ALL
