@@ -1,3 +1,6 @@
+-- part2_3b_top_bottom_efficiency.sql
+-- Purpose: Rank channels by efficiency (revenue per euro spent) across the analysis period.
+
 WITH spend_rows AS (
   SELECT date AS spend_date, 'paid_search' AS channel, paid_search_spend AS spend FROM marketing_spend UNION ALL
   SELECT date, 'paid_social', paid_social_spend FROM marketing_spend UNION ALL
