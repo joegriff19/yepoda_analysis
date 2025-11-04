@@ -1,3 +1,6 @@
+-- part4_2a_efficiency_curves_deciles.sql
+-- Purpose: Divide spend into deciles for each channel and compute total revenue and ROAS per spend level.
+
 WITH spend_long AS (
   SELECT date, 'paid_search' AS channel, paid_search_spend AS spend FROM marketing_spend UNION ALL
   SELECT date, 'paid_social', paid_social_spend FROM marketing_spend UNION ALL
