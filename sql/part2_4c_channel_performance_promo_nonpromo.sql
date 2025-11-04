@@ -1,3 +1,6 @@
+-- part2_4c_channel_performance_promo_vs_nonpromo.sql
+-- Purpose: Compare channel performance during promotion vs. non-promotion periods.
+
 WITH spend_rows AS (
   SELECT ms.date AS spend_date, 'paid_search' AS channel, paid_search_spend AS spend FROM marketing_spend ms UNION ALL
   SELECT ms.date, 'paid_social', paid_social_spend FROM marketing_spend ms UNION ALL
