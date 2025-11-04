@@ -1,3 +1,6 @@
+-- part3_4_cohort_efficiency_over_time.sql
+-- Purpose: Create a cohort-style analysis to track how overall marketing efficiency changes month over month.
+
 WITH spend_rows AS (
   SELECT date AS spend_date, 'paid_search' AS channel, paid_search_spend AS spend FROM marketing_spend UNION ALL
   SELECT date, 'paid_social', paid_social_spend FROM marketing_spend UNION ALL
