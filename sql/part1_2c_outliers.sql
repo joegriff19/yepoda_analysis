@@ -1,3 +1,6 @@
+-- part1_2c_outliers.sql
+-- Purpose: Detect potential outliers in marketing spend and revenue using z-score thresholds.
+
 WITH spend_long AS (
   SELECT date, 'paid_search' AS channel, paid_search_spend AS spend FROM marketing_spend UNION ALL
   SELECT date, 'paid_social', paid_social_spend FROM marketing_spend UNION ALL
