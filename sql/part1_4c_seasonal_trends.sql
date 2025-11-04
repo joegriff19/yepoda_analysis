@@ -1,3 +1,6 @@
+-- part1_4c_seasonal_trends.sql
+-- Purpose: Analyze seasonality effects by averaging spend and revenue by month or quarter of the year.
+
 WITH totals AS (
   SELECT
     ms.date,
