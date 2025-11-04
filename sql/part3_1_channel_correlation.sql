@@ -1,3 +1,6 @@
+-- part3_1_channel_correlation.sql
+-- Purpose: Compute correlation coefficients between each channel’s spend and total revenue.
+
 WITH spend_long AS (
   SELECT date, 'paid_search' AS channel, paid_search_spend AS spend FROM marketing_spend UNION ALL
   SELECT date, 'paid_social', paid_social_spend FROM marketing_spend UNION ALL
