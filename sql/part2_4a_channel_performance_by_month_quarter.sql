@@ -1,3 +1,6 @@
+-- part2_4a_channel_performance_by_month.sql
+-- Purpose: Break down channel performance (spend, revenue, ROAS) by month and quarter.
+
 WITH spend_rows AS (
   SELECT date AS spend_date, 'paid_search' AS channel, paid_search_spend AS spend FROM marketing_spend UNION ALL
   SELECT date, 'paid_social', paid_social_spend FROM marketing_spend UNION ALL
