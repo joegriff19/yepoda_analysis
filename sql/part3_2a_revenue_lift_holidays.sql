@@ -1,3 +1,6 @@
+-- part3_2a_revenue_lift_holidays.sql
+-- Purpose: Quantify average revenue lift on holidays versus non-holiday periods.
+
 SELECT
   AVG(CASE WHEN is_holiday THEN revenue END) AS avg_rev_holiday,
   AVG(CASE WHEN NOT is_holiday THEN revenue END) AS avg_rev_non_holiday,
