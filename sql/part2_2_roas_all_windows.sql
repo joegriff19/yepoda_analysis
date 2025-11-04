@@ -1,5 +1,12 @@
 -- part2_2_roas_all_windows.sql
 -- Purpose: Compute 7-day, 14-day, and 30-day ROAS attribution windows for each marketing channel.
+-- Attribution logic:
+--   - Each day's spend is assumed to influence revenue over a future window (7, 14, or 30 days).
+--   - For example, spend on Jan 1 contributes to revenue observed from Jan 1–7 for the 7-day window.
+--   - This creates a rolling (non-exclusive) attribution model, meaning multiple spend days can contribute
+--     to the same revenue period — appropriate when conversion lag is distributed rather than discrete.
+--   - ROAS = SUM(attributed revenue over window) / SUM(spend)
+--   - This model assumes equal weighting of spend across the attribution window (i.e., no decay function).
 
 WITH base AS (
   SELECT
@@ -15,7 +22,7 @@ WITH base AS (
   JOIN revenue r USING(date)
 ),
 
--- Aggregate total daily spend across channels
+-- Unpivot marketing spend to long format for per-channel attribution
 spend_long AS (
   SELECT date, 'paid_search' AS channel, paid_search_spend AS spend FROM base UNION ALL
   SELECT date, 'paid_social', paid_social_spend FROM base UNION ALL
@@ -25,7 +32,9 @@ spend_long AS (
   SELECT date, 'tv', tv_spend FROM base
 ),
 
--- Rolling attribution logic: revenue attributed to spend over 7, 14, 30 days
+-- Rolling attribution logic:
+--   For each channel and spend date, sum all revenue that occurs within 7, 14, and 30 days after spend.
+--   Example: Spend on March 1 contributes to revenue through March 7 (7-day), March 14 (14-day), and March 30 (30-day).
 attributed AS (
   SELECT
     s.channel,
@@ -44,7 +53,7 @@ attributed AS (
   GROUP BY s.channel, s.date, s.spend
 ),
 
--- Aggregate to channel-level totals
+-- Aggregate to channel-level totals for comparison across attribution windows.
 channel_roas AS (
   SELECT
     channel,
@@ -58,6 +67,8 @@ channel_roas AS (
   FROM attributed
   GROUP BY channel
 )
+
+-- Final output: ROAS and total attributed revenue by channel for 7-, 14-, and 30-day windows.
 SELECT
   channel,
   total_spend,
