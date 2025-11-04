@@ -56,4 +56,4 @@ Using total revenue as a proportional proxy for ROAS:
 
 ---
 
-*Prepared using DuckDB SQL. All queries are compatible with PostgreSQL and documented in the `/sql` directory.*
+*Prepared using DuckDB SQL in Jupyter. All queries are compatible with PostgreSQL and documented in the `/sql` directory.*
