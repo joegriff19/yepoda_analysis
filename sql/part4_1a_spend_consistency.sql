@@ -1,3 +1,6 @@
+-- part4_1a_spend_consistency.sql
+-- Purpose: Identify which channels have the most consistent versus variable spending patterns.
+
 WITH spend_long AS (
   SELECT date, 'paid_search' AS channel, paid_search_spend AS spend FROM marketing_spend UNION ALL
   SELECT date, 'paid_social', paid_social_spend FROM marketing_spend UNION ALL
