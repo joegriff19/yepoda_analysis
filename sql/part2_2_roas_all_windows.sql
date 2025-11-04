@@ -1,3 +1,6 @@
+-- part2_2_roas_all_windows.sql
+-- Purpose: Compute 7-day, 14-day, and 30-day ROAS attribution windows for each marketing channel.
+
 WITH base AS (
   SELECT
     ms.date,
