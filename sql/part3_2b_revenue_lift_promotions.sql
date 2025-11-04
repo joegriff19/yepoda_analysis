@@ -1,3 +1,6 @@
+-- part3_2b_revenue_lift_promotions.sql
+-- Purpose: Calculate average revenue lift during active promotions compared to normal days.
+
 SELECT
   AVG(CASE WHEN promotion_active THEN revenue END) AS avg_rev_promo,
   AVG(CASE WHEN NOT promotion_active THEN revenue END) AS avg_rev_non_promo,
