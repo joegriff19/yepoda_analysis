@@ -1,3 +1,6 @@
+-- part1_2a_missing_values.sql
+-- Purpose: Check all datasets for missing or null values across spend, revenue, and external factors.
+
 WITH marketing_missing AS (
   SELECT 'marketing_spend' AS table_name, 'date' AS column_name, COUNT(*) FILTER (WHERE date IS NULL) AS missing_count FROM marketing_spend
   UNION ALL SELECT 'marketing_spend', 'paid_search_spend', COUNT(*) FILTER (WHERE paid_search_spend IS NULL) FROM marketing_spend
